@@ -1,0 +1,10 @@
+View
+  - renders user stylable attributes for changing css values (jquery UI)
+        Mechanics
+          - Ajax auto reload capabilities after user updates values
+          - user scroll bar selectors that update value high to low
+    - render a partial that displays the user input values in a preview like manner
+        Mechanics
+          - Tie Jquery UI selectors to update inline styles
+          - print code to the screen inside of a copyable box
+              - one punch copy feature

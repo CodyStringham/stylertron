@@ -1,5 +1,34 @@
-h1 Styletron Home Page
+.row
+  .large-12.columns
+    h1 Styletron Box Shadow Generator
 
-p Lets get this party started right
+    .row
+      .large-4.large-offset-4.columns
+        span.label X-Axis:
+        #slider1
+        | <input class="slider slider-one" value="0">
+        br
+        span.label Y-Axis:
+        #slider2
+        | <input class="slider slider-two" value="0">
+        br
+        span.label Blur Radius:
+        #slider3
+        | <input class="slider slider-three" value="0">      
 
-p LiveReload working?
+    br
+
+.row
+  .large-12.columns.text-center  
+    button#picker Shadow Color
+
+    button#boxer Box Color
+
+
+.row
+  .large-6.large-offset-3.columns
+    .color-test
+      h4.code-header CSS Output
+
+      .large-12.columns
+        textarea class="code-output" placeholder="Select values above to get your code..."
