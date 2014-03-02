@@ -9,7 +9,7 @@ colpick Color Picker / colpick.com
 .colpick {
   position: absolute;
   width: 346px;
-  height: 170px;
+  height: 180px;
   overflow: hidden;
   display: none;
   font-family: Arial, Helvetica, sans-serif;
@@ -190,19 +190,19 @@ colpick Color Picker / colpick.com
 }
 /*Text inputs*/
 .colpick_field input, .colpick_hex_field input {
-  position: absolute;
-  right: 11px;
-  margin: 0;
-  padding: 0;
+  position: absolute !important;
+  right: 11px !important;
+  margin: 0 !important;
+  padding: 0 !important;
   height: 20px !important;
-  line-height: 20px;
-  background: transparent;
-  border: none;
-  font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #555;
-  text-align: right;
-  outline: none;
+  line-height: 20px !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 12px !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: #555 !important;
+  text-align: right !important;
+  outline: none !important;
 }
 .colpick_hex_field input {
   right: 4px;

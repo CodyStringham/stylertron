@@ -3,69 +3,75 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
 
-  colorTest = $('.color-test')
+  testArea = $('.test-area')
+  codeOutput = $(".code-output")
+  slider1 = $(".slider-one")
+  slider2 = $(".slider-two")
+  slider3 = $(".slider-three")
+  color1 = $(".colpick_hex_field input")
 
-  $('#picker').colpick
-    onChange: (hsb,hex,rgb,el) ->
-      $(".color-test").shadowify()
-      $(".code-output").codeOutput()
-      # $('.color-test').css('background-color', '#'+hex);
-      # $(el).colpickHide();
-
-  $('#boxer').colpick
-    onChange: (hsb,hex,rgb,el) ->
-      $('.color-test').css('background-color', '#'+hex);
-      # $(el).colpickHide();
-      $(".code-output").codeOutput()
-    
   $("#slider1").slider
     range: "min"
     value: 1
-    step: 5
-    min: 0
-    max: 400
+    step: 1
+    min: -100
+    max: 100
     slide: (event, ui) ->
-      $(".slider-one").trigger_events(ui.value)
-      return
+      slider1.trigger_events(ui.value)
 
   $("#slider2").slider
     range: "min"
     value: 1
-    step: 5
-    min: 0
-    max: 400
+    step: 1
+    min: -100
+    max: 100
     slide: (event, ui) ->
-      $(".slider-two").trigger_events(ui.value)
-      return
+      slider2.trigger_events(ui.value)
 
   $("#slider3").slider
     range: "min"
     value: 1
-    step: 5
+    step: 1
     min: 0
-    max: 400
+    max: 100
     slide: (event, ui) ->
-      $(".slider-three").trigger_events(ui.value)
-      return
+      slider3.trigger_events(ui.value)
 
- 
+  $("#radio").buttonset().on "click", ->
+    testArea.shadowify()
+    codeOutput.codeify()
+
+  $("#picker").colpick
+    layout: "rgbhex"
+    color: "454545"
+    onSubmit: (hsb, hex, rgb, el) ->
+      $(el).colpickHide()
+    onChange: (hsb,hex,rgb,el) ->
+      $(this).trigger_events()
+
   $.fn.trigger_events = (new_value) ->
     $(this).val new_value
-    $(".color-test").shadowify()
-    $(".code-output").codeOutput()
+    testArea.shadowify()
+    codeOutput.codeify()
 
   $.fn.shadowify = () ->
-    @css '-webkit-box-shadow', "#{$(".slider-one").val()}px #{ $(".slider-two").val()}px #{$(".slider-three").val()}px ##{$(".colpick_hex_field input").val()}"
+    if $('#radio2').next().attr("aria-pressed") == "true"
+      @css '-webkit-box-shadow', "inset #{$(".slider-one").val()}px #{ $(".slider-two").val()}px #{$(".slider-three").val()}px ##{$(".colpick_hex_field input").val()}"
+    else
+      @css '-webkit-box-shadow', "#{$(".slider-one").val()}px #{ $(".slider-two").val()}px #{$(".slider-three").val()}px ##{$(".colpick_hex_field input").val()}"
     
-  $.fn.codeOutput = () ->
-    console.debug $(".colpick_hex_field input").last().val()
-    css_long_ass_string = "#{$('.slider-one').val()}px #{ $('.slider-two').val()}px #{$('.slider-three').val()}px ##{$('.colpick_hex_field input').val()}"
-    @val 'box-shadow: ' + css_long_ass_string + ";\n" + '
-      -webkit-box-shadow: ' + css_long_ass_string + ";\n" + 
-      '-moz-box-shadow: ' + css_long_ass_string + ";\n" + 
-      '-o-box-shadow: ' + css_long_ass_string + ";\n" + 
-      "background-color: " + "##{$('.colpick_hex_field input').last().val()}"
-
+  $.fn.codeify = () ->
+    cssOuputString = "#{$('.slider-one').val()}px #{ $('.slider-two').val()}px #{$('.slider-three').val()}px ##{$('.colpick_hex_field input').val()}"
+    if $('#radio2').next().attr("aria-pressed") == "true"
+      @val 'box-shadow: ' + "inset " + cssOuputString + ";\n" +
+        '-webkit-box-shadow: ' + "inset " + cssOuputString + ";\n" + 
+        '-moz-box-shadow: ' + "inset " + cssOuputString + ";\n" + 
+        '-o-box-shadow: ' + "inset " + cssOuputString + ";"
+    else
+      @val 'box-shadow: ' + cssOuputString + ";\n" +
+        '-webkit-box-shadow: ' + cssOuputString + ";\n" + 
+        '-moz-box-shadow: ' + cssOuputString + ";\n" + 
+        '-o-box-shadow: ' + cssOuputString + ";"
 
 
 
