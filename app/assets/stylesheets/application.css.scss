@@ -9,5 +9,31 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.ui.all
  *= require_tree .
  */
+
+
+.color-test {
+  min-width: 400px;
+  min-height: 400px;
+  background: #e1e1e1;
+}
+
+.code-output {
+  height: 200px;
+  width: 100%;
+}
+
+span.label {
+  margin: 25px 0 10px 0;
+}
+
+h4.code-header {
+  padding: 20px;
+}
+
+button#boxer, button#picker {
+  width: 200px;
+  margin: 10px;
+}
