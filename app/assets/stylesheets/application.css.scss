@@ -13,14 +13,36 @@
  *= require_tree .
  */
 
+ @import "framework_and_overrides";
+ @import "color_picker";
+ @import "border_radius";
 
-.color-test {
-  min-width: 400px;
-  min-height: 400px;
+html {
+  background: #eee;
+}
+
+div.content-start {
+  margin-top: 40px;
+}
+
+div.row.main-content {
+  margin-top: 100px;
+}
+
+input.slider {
+  position: relative;
+  top: 2px;
+  width: 50px;
+  padding: 2.5px;
+}
+
+.test-area {
   background: #e1e1e1;
+  padding: 25px;
 }
 
 .code-output {
+  font-size: 1em;
   height: 200px;
   width: 100%;
 }
@@ -30,10 +52,21 @@ span.label {
 }
 
 h4.code-header {
-  padding: 20px;
+  padding: 0 0 20px 15px;
 }
 
-button#boxer, button#picker {
-  width: 200px;
-  margin: 10px;
+.radio-color {
+  position: relative;
 }
+
+button#picker {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  text-align: center;
+  padding: 15px 10px;
+  width: 100px;
+  margin: 20px 10px 0 0;
+}
+
+
