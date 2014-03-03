@@ -26,10 +26,15 @@ div.content-start {
 }
 
 div.row.main-content {
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
-input.slider {
+div.control-area {
+  position: relative;
+  z-index: 5;
+}
+
+input.slider-label {
   position: relative;
   top: 2px;
   width: 50px;
@@ -47,7 +52,7 @@ input.slider {
   width: 100%;
 }
 
-span.label {
+label.label {
   margin: 25px 0 10px 0;
 }
 

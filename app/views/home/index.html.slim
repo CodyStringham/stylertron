@@ -4,29 +4,34 @@
 
     .row.main-content
       .large-4.columns.control-area
+
         .row
           .small-12.columns
-            span.label X-Axis:
-            input class="slider slider-one" value="0"
-            #slider1
+            span
+              label.label for="slider1_amount" X-Axis:
+            input class="amount slider-label slider-one" id="slider1_amount"
+            #slider1.slider data-begin="-100" data-end="100"
             
 
         .row
           .small-12.columns
-            span.label Y-Axis:
-            input class="slider slider-two" value="0"
-            #slider2
+            span
+              label.label for="slider2_amount" Y-Axis:
+            input class="amount slider-label slider-two" id="slider2_amount"
+            #slider2.slider data-begin="-100" data-end="100"
             
 
         .row
           .small-12.columns
-            span.label Blur Radius:
-            input class="slider slider-three" value="0"
-            #slider3
+            span
+              label.label for="slider3_amount" Blur Radius:
+            input class="amount slider-label slider-three" id="slider3_amount"
+            #slider3.slider data-begin="0" data-end="100"
 
         .row
           .small-12.columns.radio-color
-            span.label Shadow Type:
+            span
+              label.label Shadow Type:
             #radio
               input#radio1 type="radio" name="radio" checked="true"
               label for="radio1" Outer
@@ -34,8 +39,10 @@
               label for="radio2" Inset
             button#picker Color
 
-      .large-6.columns.test-area
+      .large-7.columns.test-area style="box-shadow: 10px 10px 10px #454545; -webkit-box-shadow: 10px 10px 10px #454545; -moz-box-shadow: 10px 10px 10px #454545; -o-box-shadow: 10px 10px 10px #454545; "
         h4.code-header CSS Output:
 
         .large-12.columns
           textarea class="code-output" placeholder="Start selecting values to get your code!"
+
+
