@@ -57,6 +57,10 @@ $ ->
   colorPick = $(".colpick_hex_field input")
 
   #function that applies the CSS effect
+  $.fn.trigger_events = (new_value) ->
+    testArea.shadowify()
+    codeOutput.codeify()
+
   $.fn.shadowify = () ->
     cssStyleString = "#{slider1.val()}px #{slider2.val()}px #{slider3.val()}px ##{colorPick.val()}"
     if $('#radio2').next().attr("aria-pressed") == "true"
@@ -72,6 +76,7 @@ $ ->
         '-moz-box-shadow': cssStyleString
         '-o-box-shadow': cssStyleString
     
+
   #function that updates the output text
   $.fn.codeify = () ->
     cssStyleString = "#{slider1.val()}px #{slider2.val()}px #{slider3.val()}px ##{colorPick.val()}"
@@ -86,6 +91,7 @@ $ ->
         '-moz-box-shadow: ' + cssStyleString + ";\n" + 
         '-o-box-shadow: ' + cssStyleString + ";"
 
+
   #helper that calls both functions
   $.fn.trigger_events = () ->
     testArea.shadowify()
@@ -93,6 +99,7 @@ $ ->
 
   #Initializes css output on page load
   codeOutput.codeify()
+
 
 
 
